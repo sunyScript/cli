@@ -1,0 +1,17 @@
+{
+    "name": "troila-kunpeng-cli",
+    "version": "0.0.3",
+    "author": "SUN2277",
+    "private": false,
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "commander": "^5.1.0",
+        "download-git-repo": "^3.0.2",
+        "inquirer": "^7.2.0",
+        "log-symbols": "^4.0.0",
+        "ora": "^4.0.4"
+    },
+    "bin": {
+        "tk-cli": "./bin/cmd"
+    }
+}
