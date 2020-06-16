@@ -13,7 +13,7 @@ const promptList = [
 	},
 	{
 		type: 'confirm',
-		message: '是否使用yarn?',
+		message: '是否使用yarn?(需已安装yarn)',
 		name: 'yarn'
 	},
 	{

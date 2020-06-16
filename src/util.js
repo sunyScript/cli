@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const fs = require('fs')
 const {exec} = require('child_process')
 const ora = require('ora')
@@ -33,7 +34,9 @@ util = {
 		return new Promise((resolve, reject) => {
 			if(fs.existsSync(fileName)) {
 				let data = JSON.parse(fs.readFileSync(fileName).toString())
-				Object.keys(obj).forEach(key => data[key] = obj[key])
+				Object.keys(obj).forEach(key => {
+					if(obj[key]) data[key] = obj[key]
+				})
 				fs.writeFileSync(fileName, JSON.stringify(data, null, '\t'), 'utf-8')
 				resolve()
 			}else {
@@ -47,9 +50,9 @@ util = {
 		let loading = ora(`${cmd}: 命令执行中...`).start()
 		exec(cmd, (err, stdout, stderr) => {
 			if (err) {
-				loading.fail(`${cmd}: 执行失败`)
+				loading.fail(chalk.red(`${cmd} 执行失败`))
 			}else{
-				loading.succeed(`${cmd}: 命令执行完成`)
+				loading.succeed(chalk.green(`${cmd} 命令执行完成`))
 				callback && callback()
 			}
 		})
