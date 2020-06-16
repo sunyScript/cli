@@ -3,20 +3,20 @@ const symbol = require('log-symbols')
 const ora = require('ora')
 const downloadGit = require('download-git-repo')
 const util = require('./util')
+const init = require('./init')
 
 //answer{name, git, yarn, plugin, compile, ts}
 const create = (answer, name) => {
-	const spinner = ora('拉取模板中...').start()
+	let spinner = ora('拉取模板中...').start()
 	downloadGit('https://github.com:sunyScript/cli-template#' + util.selected(answer), name, {clone: false},
 		(err) => {
 			if(err) {
 				spinner.color = 'red'
-				spinner.text = '拉取模板失败'
-				spinner.fail()
+				spinner.fail('拉取模板失败')
 			}else {
 				spinner.color = 'green'
-				spinner.text = '拉取模板成功'
-				spinner.succeed()
+				spinner.succeed('拉取模板成功')
+				init(answer, name)
 			}
 		}
 	)

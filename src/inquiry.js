@@ -3,9 +3,8 @@ const inquirer = require('inquirer')
 const promptList = [
 	{
 		type: 'input',
-		message: '创建者:',
-		name: 'name',
-		default: "developer"
+		message: 'author:',
+		name: 'author'
 	},
 	{
 		type: 'confirm',
