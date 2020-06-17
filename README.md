@@ -12,7 +12,9 @@ tk-cli init <projectName>
 
 ####可选模板
 ```
->'master',
+模板都是基于vue-cli3进行改造
+
+>'vue',
 >'vue-ts',
 >'vue-plugin',
 >'vue-plugin-ts',
