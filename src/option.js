@@ -13,7 +13,7 @@ const promptList = [
 	},
 	{
 		type: 'confirm',
-		message: '是否使用yarn?(需已安装yarn)',
+		message: '是否使用yarn?',
 		name: 'yarn'
 	},
 	{
@@ -35,6 +35,6 @@ const promptList = [
 	}
 ]
 
-const inquiry = inquirer.prompt(promptList)
+const option = inquirer.prompt(promptList)
 
-module.exports = inquiry
+module.exports = option

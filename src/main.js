@@ -3,7 +3,7 @@ const program = new Command()
 const chalk = require('chalk')
 const symbol = require('log-symbols')
 const util = require('./util')
-const inquiry =require('./inquiry')
+const option =require('./option')
 const create =require('./create')
 
 
@@ -11,7 +11,7 @@ program
 	.command('init <fileName>')
 	.action((source, cmd) => {
 		util.checkRepeat(cmd.args[0]).then(()=>
-			inquiry.then(answer => create(answer, cmd.args[0]))
+			option.then(answer => create(answer, cmd.args[0]))
 		).catch(()=>
 			console.log(symbol.error, chalk.red('文件夹名已被占用，请更换名字重新创建'))
 		)

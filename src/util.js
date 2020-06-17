@@ -47,12 +47,13 @@ util = {
 
 	//执行命令
 	loadCmd: (cmd, callback) => {
-		let loading = ora(`${cmd}: 命令执行中...`).start()
+		let instruct = cmd.indexOf('&&') != -1 ? cmd.split('&&').pop() : cmd
+		let loading = ora(`${ instruct }: 命令执行中...`).start()
 		exec(cmd, (err, stdout, stderr) => {
 			if (err) {
-				loading.fail(chalk.red(`${cmd} 执行失败`))
+				loading.fail(chalk.red(`${ instruct } 执行失败`))
 			}else{
-				loading.succeed(chalk.green(`${cmd} 命令执行完成`))
+				loading.succeed(chalk.green(`${ instruct } 命令执行完成`))
 				callback && callback()
 			}
 		})
