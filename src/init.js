@@ -7,12 +7,6 @@ const fileName = 'package.json'
 const initPluginGit = (answer, name) => {
 	let stepFunc = [
 		(callback) => {
-			util.loadCmd(
-				`cd ${name} && ${answer['yarn'] ? 'yarn' :  'npm i'}`,
-				()=> callback(null)
-			)
-		},
-		(callback) => {
 			if(answer['git']) {
 				console.log(chalk.blue('==================='))
 				console.log('初始化git中...')
@@ -30,6 +24,15 @@ const initPluginGit = (answer, name) => {
 		},
 		(callback) => {
 			console.log(symbol.success, chalk.green('初始化git完成'))
+			callback(null)
+		},
+		(callback) => {
+			console.log(chalk.blue('==================='))
+			console.log('安装依赖中...')
+			util.loadCmd(
+				`cd ${name} && ${answer['yarn'] ? 'yarn' :  'npm i'}`,
+				()=> callback(null)
+			)
 		}
 	]
 	async.series(stepFunc)
@@ -42,12 +45,14 @@ const init = (answer, name) => {
 		author: answer['author']
 	}
 	util.updateJson(name + '/' + fileName, obj).then(() => {
+		console.log(chalk.blue('==================='))
 		console.log(
 			symbol.success,
 			chalk.green('更新'+ fileName + '完成')
 		)
 		initPluginGit(answer, name)
 	}).catch(()=>{
+		console.log(chalk.blue('==================='))
 		console.log(
 			symbol.error,
 			chalk.red('更新' + fileName + '文件出错')
