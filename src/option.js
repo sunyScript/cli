@@ -3,18 +3,18 @@ const inquirer = require('inquirer')
 const promptList = [
 	{
 		type: 'input',
-		message: 'author:',
+		message: '创建者:',
 		name: 'author'
 	},
 	{
 		type: 'confirm',
-		message: '是否初始化git?',
-		name: 'git'
+		message: '使用yarn?',
+		name: 'yarn'
 	},
 	{
 		type: 'confirm',
-		message: '是否使用yarn?',
-		name: 'yarn'
+		message: '初始化git?',
+		name: 'git'
 	},
 	{
 		type: "confirm",
