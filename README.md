@@ -17,7 +17,6 @@ tk-cli init <projectName>
 >'vue',
 >'vue-ts',
 >'vue-plugin',
->'vue-plugin-ts',
 >'vue-plugin-compile'
 ```
 

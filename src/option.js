@@ -31,7 +31,7 @@ const promptList = [
 		type: "confirm",
 		message: "是否使用typeScript?",
 		name: "ts",
-		when: answers => !answers.compile
+		when: answers => !answers.plugin
 	}
 ]
 

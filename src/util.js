@@ -18,11 +18,10 @@ util = {
 			'master',
 			'vue-ts',
 			'vue-plugin',
-			'vue-plugin-ts',
 			'vue-plugin-compile'
 		]
 		if(answer['plugin']) {
-			i = answer['compile'] ? 4 : answer['ts'] ? 3 : 2
+			i = answer['compile'] ? 3 : 2
 		}else {
 			i = answer['ts'] ? 1 : 0
 		}
